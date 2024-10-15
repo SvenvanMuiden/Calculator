@@ -22,7 +22,7 @@ jobs:
       run: ls -al
     - name: Run tests with pytest and collect coverage
       run: |
-        coverage run -m pytest ./test_calculator.py
+        coverage run -m pytest ./Test_calculator.py  # Updated file name
         coverage report
         coverage xml
     - name: Store coverage report
