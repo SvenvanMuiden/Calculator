@@ -18,15 +18,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest coverage
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Show working directory
-      run: pwd
-    - name: List files in current directory
+    - name: List files in the current directory
       run: ls -al
-    - name: Collect tests only
-      run: pytest --collect-only
+    - name: Check for test and calc files
+      run: |
+        ls -al ./test_calculator.py
+        ls -al ./calc.py
     - name: Run tests with pytest and collect coverage
       run: |
-        coverage run -m pytest test_calculator.py
+        coverage run -m pytest ./test_calculator.py
         coverage report
         coverage xml
     - name: Store coverage report
